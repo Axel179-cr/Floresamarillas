@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flor Animada</title>
+    <style>
+        /* Estilo global */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            overflow: hidden;
+            position: relative;
+            color: white;
+        }
+
+        /* Animación de las partículas del fondo */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: backgroundMove 10s linear infinite;
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(100px, 100px);
+            }
+        }
+
+        /* Diseño de la flor */
+        .flower {
+            width: 200px; /* Tamaño más grande */
+            height: 200px;
+            background: url('Screenshot_20240930_020953.jpg') no-repeat center/contain;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        /* Animación de la flor */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Texto personalizado */
+        h1 {
+            color: #ffcc00; /* Color amarillo */
+            font-size: 2rem;
+            margin-bottom: 20px;
+            z-index: 1;
+        }
+
+        /* Ajustes responsivos para móvil */
+        @media (max-width: 768px) {
+            .flower {
+                width: 150px; /* Tamaño ajustado para pantallas más pequeñas */
+                height: 150px;
+            }
+            h1 {
+                font-size: 1.0rem; /* Tamaño del texto más pequeño en pantallas móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Ten tus flores amarillas tkm💗</h1>
+    <div class="flower"></div>
+</body>
+</html>
